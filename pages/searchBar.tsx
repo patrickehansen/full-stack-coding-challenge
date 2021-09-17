@@ -25,6 +25,8 @@ const SearchBar: NextPage<Props> = ({allAirports, onFiltered}) => {
   useEffect(() => {
     if (!input) return;
 
+    // I use a dictionary here because I think it helps for the user to know why the match is being displayed.
+    // This allows us to search by all relevant fields and know which field yielded the match.
     const filteredSet = Object.entries(allAirports).reduce((a, [key, value]) => {
       if (key.toLowerCase().includes(input)) {
         a.add({
