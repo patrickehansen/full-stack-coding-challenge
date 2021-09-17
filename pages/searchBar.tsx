@@ -5,22 +5,16 @@ import { NextPage } from 'next'
 import Airport from '../types/airport'
 import AirportDictionary from '../types/airportDictionary'
 import AirportOption from './airportOption'
+import AirportOptionData from '../types/airportOptionData'
 
 interface Props {
   allAirports: AirportDictionary;
   onFiltered: (a: Airport[]) => any;
 }
 
-const nullOption = {
+const nullOption: AirportOptionData = {
   term: '. . .', 
-  airport: {
-    iata: 'NONE',
-    name: null,
-    city: null,
-    country: null,
-    longitude: null,
-    latitude: null,
-  },
+  airport: null,
 }
 
 const SearchBar: NextPage<Props> = ({allAirports, onFiltered}) => {
@@ -76,7 +70,7 @@ const SearchBar: NextPage<Props> = ({allAirports, onFiltered}) => {
     {
       (resultCount > 0) && <div >
         {
-          results.map((v, i) => <AirportOption match={v} />)
+          results.map((v, i) => <AirportOption match={v} key={i} />)
         }
         {
           resultCount > 10 && <AirportOption match={nullOption} />
