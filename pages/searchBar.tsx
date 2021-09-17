@@ -62,13 +62,14 @@ const SearchBar: NextPage<Props> = ({allAirports, onFiltered}) => {
             onFiltered(results.map(v => v.airport));
             setInput('');
             setResults([]);
+            setResultCount(0);
           }
         }
       }
     />
 
     {
-      (resultCount > 0) && <div >
+      (resultCount > 0) && <div className="border p-1.5">
         {
           results.map((v, i) => <AirportOption match={v} key={i} />)
         }
