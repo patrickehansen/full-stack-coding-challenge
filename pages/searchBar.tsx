@@ -55,7 +55,7 @@ const SearchBar: NextPage<Props> = ({allAirports, onFiltered}) => {
             return;
           };
 
-          setInput(e.target.value);
+          setInput(e.target.value.toLowerCase());
         }
       }
       onKeyUp={
