@@ -44,7 +44,7 @@ const SearchBar: NextPage<Props> = ({allAirports, onFiltered}) => {
 
   return <div>
     <input 
-      className='flex items-center p-5 mt-5 w-full text-gray-800 border border-black rounded-lg shadow-sm hover:border-blue-600 focus:border-blue-600 focus:ring focus:ring-blue-200 focus:outline-none'
+      className='flex items-center p-5 mt-5 w-full text-gray-800 border border-black shadow-sm hover:border-blue-600 focus:border-blue-600 focus:ring focus:ring-blue-200 focus:outline-none'
       onChange={
         (e) => {
           if (e.target.value.length < 2) {
