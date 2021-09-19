@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { NextPage } from 'next'
 import Link from 'next/link'
 
-import SearchBar from './searchBar'
+import SearchBar from '../components/searchBar'
 
 import Layout from '../components/layout'
 import useApiData from '../hooks/use-api-data'
