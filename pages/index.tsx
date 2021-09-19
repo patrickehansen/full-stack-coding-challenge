@@ -2,30 +2,15 @@ import { useState } from 'react'
 import { NextPage } from 'next'
 import Link from 'next/link'
 
-import SearchBar from '../components/searchBar'
-
-import Layout from '../components/layout'
 import useApiData from '../hooks/use-api-data'
+
+import SearchBar from '../components/searchBar'
+import Layout from '../components/layout'
+
 import Airport from '../types/airport'
-import AirportDictionary from '../types/airportDictionary'
 
-let airportDictionary;
+import { mapAirports } from '../utils/map';
 
-// Minimal implementation to cache this response so we only have to do it once.
-function mapAirports (airports): AirportDictionary {
-  if (airportDictionary) return airportDictionary;
-
-  airportDictionary = airports.reduce((a, v) => {
-    a[v.name] = v;
-    a[v.iata] = v;
-    a[v.city] = v;
-    a[v.country] = v;
-
-    return a;
-  }, {});
-
-  return airportDictionary;
-}
 
 const Page: NextPage = () => {
   const airports = useApiData<Airport[]>('/api/airports', []);
